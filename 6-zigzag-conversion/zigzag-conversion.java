@@ -3,9 +3,11 @@ class Solution {
 
         if (numRows == 1 || s.length() == 1)
             return s;
-        Map<Integer, StringBuilder> rows = new HashMap<>();
+        //Map<Integer, StringBuilder> rows = new HashMap<>();
+        StringBuilder[] rows = new StringBuilder[numRows];
         for (int i = 0; i < numRows; i++) {
-            rows.put(i, new StringBuilder());
+            //rows.put(i, new StringBuilder());
+            rows[i] = new StringBuilder();
         }
 
         int row = 0;
@@ -13,7 +15,8 @@ class Solution {
 
         for (char c : s.toCharArray()) {
 
-            rows.get(row).append(c);
+            //rows.get(row).append(c);
+            rows[row].append(c);
 
             if (row == 0)
                 dir = 1;
@@ -26,7 +29,8 @@ class Solution {
 
         StringBuilder results = new StringBuilder();
         for (int i = 0; i < numRows; i++) {
-            results.append(rows.get(i));
+            //results.append(rows.get(i));
+            results.append(rows[i]);
         }
         return results.toString();
     }
