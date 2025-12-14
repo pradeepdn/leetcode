@@ -17,7 +17,6 @@ class Solution {
                 temp = matrix[j][left];
                 matrix[j][left] = matrix[j][right];
                 matrix[j][right] = temp;
-                System.out.println(matrix[j][right]);
             }
             left++;
             right--;
