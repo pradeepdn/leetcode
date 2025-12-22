@@ -25,20 +25,17 @@ class Solution {
         }
 
         int rotations = k % length;
-        tail = head;
-        
-        while (tail.next != null) {
-            counter++;    
-            if (counter > rotations) {
-                prev = prev.next;
-            }
-            tail = tail.next;
+        if (rotations == 0)
+            return head;
+
+        for (int i = 0; i < length - rotations - 1; i++) {
+            prev = prev.next;
         }
 
         tail.next = head;
         head = prev.next;
         prev.next = null;
-   
+
         return head;
     }
 }
