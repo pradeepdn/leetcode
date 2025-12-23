@@ -29,21 +29,18 @@ class Solution {
         // }
         /**using head linked lists seperating the less and grearter then x and joining them */
         while (headDummy != null) {
-            ListNode nextNode = headDummy.next;
-
             if (headDummy.val < x) {
                 less.next = headDummy;
                 less = less.next;
-                less.next = null;
             }
             if (headDummy.val >= x) {
                 greater.next = headDummy;
                 greater = greater.next;
-                greater.next = null;
             }
-            headDummy = nextNode;
+            headDummy = headDummy.next;
         }
 
+        greater.next = null; //key important line to stop circular loop 
         less.next = greaterdummy.next;
 
         return lessdummy.next;
